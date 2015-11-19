@@ -12,6 +12,7 @@ The `APIRequester` class, as summarised, is the primary interface your code has 
 complete package that enables you to fire off a basic request to the API without having to touch any other classes.
 
 #### Class Attributes
+
 - ##### `request_tokens`  
   **Type:** Dictionary  
   Holds request tokens for this requester instance. Request tokens are defined as one of a request key, a client ID, and
