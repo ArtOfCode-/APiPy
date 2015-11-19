@@ -65,8 +65,8 @@ class APIRequester:
         explanation of this method.
         :param route: The route to request to from the API. Should only be the latter part of the URL, after the
         /2.2 version indicator.
-        :param data: Any additional data (API fields or config options) to use for the request.
-        :return: An APIResponse object (see: response.py) containing the response details.
+        :param data: Any additional data to use to build the request.
+        :return: An APIResponse object (see: response.py) containing the response data.
         """
 
         # Let's only support the newest API version. Also, that trailing question mark makes no difference
@@ -76,7 +76,7 @@ class APIRequester:
         # Most SE API requests are GET format, but a few are POST. Better let the next dev decide which they need.
         request_type = data["request_type"] if "request_type" in data else "get"
 
-        # That said, I don't believe the API accepts PUT or DELETE, etc. So we'll limit it.
+        # That said, I don't believe the API accepts PUT or DELETE, etc. So we'll limit it to that.
         if request_type is not "get" and request_type is not "post":
             raise InvalidRequestTypeException(request_type)
 
