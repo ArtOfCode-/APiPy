@@ -13,7 +13,7 @@ complete package that enables you to fire off a basic request to the API without
 
 #### Class Attributes
 
-- ##### `request_tokens`  
+- `request_tokens`  
   **Type:** Dictionary  
   Holds request tokens for this requester instance. Request tokens are defined as one of a request key, a client ID, and
   an access token. You can use this object directly for getting, setting, or checking request tokens; there are also 
