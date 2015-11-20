@@ -27,12 +27,6 @@ class UnauthorizedAccessException(APIBaseException):
         """
         return "The request was not authorized to take the requested action."
 
-    def get_base(self):
-        """
-        Gets the instance of the base exception that this instance derives from.
-        """
-        return super()
-
 
 class InvalidRequestTypeException(BaseException):
     """
@@ -47,4 +41,5 @@ class InvalidRequestTypeException(BaseException):
         """
         Gets the exception message.
         """
-        return "The provided request type was not a member of the allowed request types."
+        return "The provided request type '{0}' was not a member of the allowed request types."\
+            .format(self.provided_type)

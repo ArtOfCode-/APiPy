@@ -15,9 +15,6 @@ class TestUnauthorizedAccessException(ut.TestCase):
     def test_get_message(self):
         self.assertEqual(self.ex.get_message(), "The request was not authorized to take the requested action.")
 
-    def test_get_base(self):
-        self.assertTrue(isinstance(self.ex.get_base(), APIBaseException))
-
 
 class TestInvalidRequestTypeException(ut.TestCase):
     def setUp(self):
@@ -28,4 +25,4 @@ class TestInvalidRequestTypeException(ut.TestCase):
 
     def test_get_message(self):
         self.assertEqual(self.ex.get_message(),
-                         "The provided request type was not a member of the allowed request types.")
+                         "The provided request type 'delete' was not a member of the allowed request types.")
