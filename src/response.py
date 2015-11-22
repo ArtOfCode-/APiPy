@@ -34,9 +34,26 @@ class APIResponse:
             del json_copy["items"]
         return json_copy
 
+    # This method is basically just a wrapper around quota_remaining, but adds checks so that downstream code can be
+    # more idiomatic:   response.get_quota_remaining()   instead of   response.__json['quota_remaining' if ...
     def get_quota_remaining(self):
         """
         Gets the remaining requests in the quota assigned to this IP and request key.
         :return: An integer, containing the remaining number of requests.
         """
         return self.__json["quota_remaining"] if "quota_remaining" in self.__json else None
+
+    # This is another wrapper similar to get_quota_remaining, but around has_more.
+    def has_more(self):
+        """
+        Indicates whether the returned object has more data in further pages.
+        :return: True or False
+        """
+        return self.__json["has_more"] if "has_more" in self.__json else False
+
+    def get_backoff(self):
+        """
+        Gets the backoff time that the API has mandated, if any.
+        :return: An integer, or None if there is no backoff.
+        """
+        return self.__json["backoff"] if "backoff" in self.__json else None
