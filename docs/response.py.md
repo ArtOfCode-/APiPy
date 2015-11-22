@@ -10,6 +10,11 @@ instance of the class in this module: the `APIResponse` class.
 The `APIResponse` class is designed for dealing with API responses. It will be passed the response from the requester,
 and makes available helper methods for dealing with the response and getting hold of the data.
 
+A number of methods in this class are simply wrappers around API fields. If you like, you *can* get the API wrapper 
+object using `get_wrapper()`, and test for those fields yourself - these methods are primarily there to be syntactic 
+sugar and make your code look nicer. Such methods will return the field's value if it exists, `False` if it doesn't for
+boolean fields, or `None` for any other non-existent field.
+
 #### Class Methods
 - ##### `__init__(response_json)`  
   **Param `response_json`:** A JSON object containing the response returned by the API.
